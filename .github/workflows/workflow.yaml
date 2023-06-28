@@ -19,6 +19,9 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
+      - name: print docker creds
+        run: echo "${{secrets.DOCKER_USER}} & ${{secrets.DOCKER_PASSWORD}}"
+
       - name: Build docker image
         run: |
           IMAGE=${{secrets.DOCKER_USER}}/flask-demo:$GITHUB_RUN_ID
