@@ -23,8 +23,8 @@ jobs:
       - name: print tag
         run: echo "$IMAGE"
 
-      - name: Build docker image
-        run: docker build . -t ${{IMAGE}}
+      #- name: Build docker image
+      #  run: docker build . -t ${{IMAGE}}
 
-      - name: Docker push
-        run: docker push ${{IMAGE}}
+      #- name: Docker push
+      #  run: docker push ${{IMAGE}}
