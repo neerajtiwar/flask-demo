@@ -19,7 +19,7 @@ jobs:
           IMAGE: "neerajtiwari/flask-demo:$GITHUB_RUN_ID"
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-          IMAGE: "neerajtiwari/flask-demo:$GITHUB_RUN_ID" >>$GITHUB_ENV
+          echo IMAGE="neerajtiwari/flask-demo:$(GITHUB_RUN_ID)" >> $GITHUB_ENV
 
       - name: print Image
         run: echo "${{env.IMAGE}}"
