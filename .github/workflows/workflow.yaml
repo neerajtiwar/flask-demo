@@ -20,8 +20,8 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-      #- name: print docker creds
-      #  run: echo "${{secrets.DOCKER_USER}} & ${{secrets.DOCKER_PASSWORD}}"
+      - name: print Image
+        run: echo "${{env.IMAGE}}"
 
       - name: Build docker image
         run: docker build . -t ${{env.IMAGE}}
