@@ -16,16 +16,15 @@ jobs:
         env:
           DOCKER_USER: ${{secrets.DOCKER_USER}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-          IMAGE: "neerajtiwari/flask-demo:$GITHUB_RUN_ID"
+          IMAGE: "neerajtiwari/flask-demo:$(var.GITHUB_RUN_ID)"
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-          echo IMAGE="neerajtiwari/flask-demo:$(GITHUB_RUN_ID)" >> $GITHUB_ENV
 
-      - name: print Image
-        run: echo "${{env.IMAGE}}"
+      - name: print tag
+        run: echo "$IMAGE"
 
       - name: Build docker image
-        run: docker build . -t ${{env.IMAGE}}
+        run: docker build . -t ${{IMAGE}}
 
       - name: Docker push
-        run: docker push ${{env.IMAGE}}
+        run: docker push ${{IMAGE}}
