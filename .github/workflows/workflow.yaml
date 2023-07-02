@@ -50,4 +50,4 @@ jobs:
           push: true
           tags: neerajtiwar/flask-demo:latest
         env:
-          DOCKER_AUTH: ${{ secrets.DOCKER_PAT }}
+          DOCKER_AUTH: ${{ secrets.GIT_TOKEN }}
