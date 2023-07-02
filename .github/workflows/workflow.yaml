@@ -47,9 +47,9 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}"
+          context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}-${{ github.sha }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}/:${{ github.sha }}
+          file: ./Dockerfile
           secrets: |
             "github_token=${{ secrets.GIT_TOKEN }}"
