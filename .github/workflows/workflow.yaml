@@ -49,6 +49,7 @@ jobs:
         with:
           context: .
           push: true
+          file: ./Dockerfile
           tags: neerajtiwar/flask-demo:latest
           secrets: |
             "github_token=${{ secrets.GIT_TOKEN }}"
