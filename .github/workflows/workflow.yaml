@@ -49,7 +49,7 @@ jobs:
         with:
           context: "{{defaultContext}}"
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}-${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
             "github_token=${{ secrets.GIT_TOKEN }}"
