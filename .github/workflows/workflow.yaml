@@ -20,7 +20,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Build Docker image
-        run: docker build --file Dockerfile --tag neerajtiwar/flask-demo:latest .
+        run: docker build --file Dockerfile --tag neerajtiwari/flask-demo:latest .
 
       - name: Push Docker image
-        run: docker push neerajtiwar/flask-demo:latest
+        run: docker push neerajtiwari/flask-demo:latest
