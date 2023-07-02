@@ -24,4 +24,3 @@ jobs:
 
       - name: Push Docker image
         run: docker push neerajtiwar/flask-demo:latest
-E
