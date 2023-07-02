@@ -47,9 +47,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: .
           push: true
-          file: ./Dockerfile
           tags: neerajtiwar/flask-demo:latest
           secrets: |
             "github_token=${{ secrets.GIT_TOKEN }}"
