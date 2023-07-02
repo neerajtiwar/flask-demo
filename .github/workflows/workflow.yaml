@@ -49,5 +49,5 @@ jobs:
         with:
           push: true
           tags: neerajtiwar/flask-demo:latest
-          secrets: |
-            "github_token=${{ secrets.GIT_TOKEN }}"
+        env:
+          DOCKER_AUTH: ${{ secrets.DOCKER_PAT }}
