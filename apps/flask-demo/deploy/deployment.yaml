@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-demo
+  namespace: flask-demo
+  labels:
+    application: flask-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: flask-demo
+  template:
+    metadata:
+      labels:
+        application: flask-demo
+    spec:
+      initContainers:
+      containers:
+        - name: flask-demo
+          env:
+          image: docker.io/neerajtiwari/flask-demo:latest
+          ports:
+            - containerPort: 8001
+          resources:
+            requests:
+              cpu: 20m
+              memory: 128m
+            limits:
+              cpu: 20m
+              memory: 128m
