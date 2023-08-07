@@ -1,6 +1,5 @@
 from flask import Flask, request
 import structlog
-import json
 
 app = Flask(__name__)
 LOGGER = structlog.get_logger()
