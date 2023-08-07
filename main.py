@@ -6,15 +6,11 @@ app = Flask(__name__)
 LOGGER = structlog.get_logger()
 
 
-@app.route("/sum", methods=["POST"])
+@app.route("/api/collector", methods=["POST"])
 def webhook():
     LOGGER.info("request received")
-    operand1 = request.args.get('num1')
-    operand2 = request.args.get('num2')
-    addition = int(operand1) + int(operand2)
-    return {
-        "sum": addition
-    }
+    event = request.get_data()
+    LOGGER.info(f"ArgoCD Notification received is:  {event}")
 
 
 if __name__ == "__main__":
