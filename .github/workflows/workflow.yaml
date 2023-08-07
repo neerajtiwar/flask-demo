@@ -6,21 +6,29 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  build:
+    name: Build and Push
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
 
-      - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Build Docker image
-        run: docker build --file Dockerfile --tag neerajtiwari/flask-demo:latest .
+      - name: Build Docker Image
+        run: docker build -t neerajtiwari/flask-app:${{ github.sha }} .
 
-      - name: Push Docker image
-        run: docker push neerajtiwari/flask-demo:latest
+      - name: Log in to Docker Hub
+        run: docker login -u "${{ secrets.DOCKER_USER }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Push Docker Image
+        run: docker push neerajtiwari/flask-app:${{ github.sha }}
