@@ -10,4 +10,4 @@ spec:
       port: 80
       targetPort: 8001
   selector:
-    app: flask-demo
+    application: flask-demo
