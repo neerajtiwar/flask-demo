@@ -4,7 +4,9 @@ metadata:
   name: flask-demo
   namespace: flask-project
   labels:
-    application: flask-demo
+    app.kubernetes.io/component: flask-demo
+    app.kubernetes.io/name: flask-demo
+    app.kubernetes.io/part-of: flask-project
 spec:
   revisionHistoryLimit: 2
   replicas: 1
