@@ -19,7 +19,7 @@ spec:
       containers:
         - name: flask-demo
           env:
-          image: docker.io/neerajtiwari/flask-app:8e6e8fb2556b0a73f28aae7cef60ed17b4188022
+          image: docker.io/neerajtiwari/flask-app:9afe35d39df4fc8562e5554558d7fc18097a5257
           ports:
             - containerPort: 8001
           resources:
