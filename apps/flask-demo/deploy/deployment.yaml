@@ -6,6 +6,7 @@ metadata:
   labels:
     application: flask-demo
 spec:
+  revisionHistoryLimit: 2
   replicas: 1
   selector:
     matchLabels:
