@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: flask-demo
-  namespace: flask-demo
+  namespace: flask-project
 spec:
   ports:
     - name: http
