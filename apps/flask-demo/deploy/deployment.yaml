@@ -16,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        application: flask-demo
+        app.kubernetes.io/name: flask-demo
     spec:
       initContainers:
       containers:
