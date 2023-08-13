@@ -12,7 +12,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      application: flask-demo
+      app.kubernetes.io/name: flask-demo
   template:
     metadata:
       labels:
