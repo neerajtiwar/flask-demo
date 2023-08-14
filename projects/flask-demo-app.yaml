@@ -5,8 +5,6 @@ metadata:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    notifications.argoproj.io/subscribe.on-deployed-healthy.engineering-metrics-collector: ""
 spec:
   description: Flask rest API demo project
   sourceRepos:
